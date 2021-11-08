@@ -64,6 +64,12 @@ public class FlowView extends ViewGroup {
             View child = getChildAt(i);
             LayoutParams layoutParams = child.getLayoutParams();
             if (child.getVisibility() != View.GONE) {
+
+                //MeasureSpec 构成包括两个部分，mode和size，也就是一个view是宽是什么的测量模式，它的宽度是多少
+                //一个view的大小是要受限制于它的父布局的，getChildMeasureSpec所以在这个方法中的第一个参数是父布局的MeasureSpec,如果父布局也不能确认这个
+                //的来源于父布局的父布局或者更往上。
+                //MeasureSpec 是一个32为的Int，它的低2位用来确认测量模式，高30位来存放size， 01，00，11
+
                 //进行子view的测量
                 int childWidthMeasureSpec = getChildMeasureSpec(widthMeasureSpec, getPaddingLeft() + getPaddingRight(), layoutParams.width);
                 int childHeightMeasureSpec = getChildMeasureSpec(heightMeasureSpec, getPaddingTop() + getPaddingBottom(), layoutParams.height);
