@@ -1,4 +1,4 @@
-package com.arms.flowview;
+package com.arms.flowview.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

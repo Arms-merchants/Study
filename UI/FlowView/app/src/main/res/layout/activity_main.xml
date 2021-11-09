@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.arms.flowview.FlowView
+    <com.arms.flowview.view.FlowView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -15,6 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/tv_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_button_circular"
@@ -82,7 +83,7 @@
             android:background="@drawable/shape_button_circular"
             android:text="图书勋章日" />
 
-    </com.arms.flowview.FlowView>
+    </com.arms.flowview.view.FlowView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
