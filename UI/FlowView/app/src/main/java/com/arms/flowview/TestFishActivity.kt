@@ -1,11 +1,7 @@
 package com.arms.flowview
 
-import android.animation.ObjectAnimator
-import android.animation.ValueAnimator.REVERSE
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.arms.flowview.view.FishDrawable
 
 /**
  * <pre>
