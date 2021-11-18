@@ -17,9 +17,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TestActivity"/>
-        <activity android:name=".TvColorChangeActivity"/>
-        <activity android:name=".TestFishActivity"/>
+        <activity android:name=".TestActivity" />
+        <activity android:name=".TvColorChangeActivity" />
+        <activity android:name=".TestFishActivity" />
+        <activity android:name=".RvListActivity" />
 
     </application>
 
