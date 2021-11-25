@@ -21,6 +21,8 @@
         <activity android:name=".TvColorChangeActivity" />
         <activity android:name=".TestFishActivity" />
         <activity android:name=".RvListActivity" />
+        <activity android:name=".vp.VpTestActivity" />
+        <activity android:name=".vp.TestVp2Activity"/>
 
     </application>
 

@@ -28,7 +28,7 @@ class TvColorChangeActivity : AppCompatActivity() {
         vp2 = findViewById(R.id.vp2)
         tab1 = findViewById(R.id.tv_1)
         tab2 = findViewById(R.id.tv_2)
-        val vpAdapter = FAdapter(arrayListOf(ListFragment(), ListFragment()), this)
+        val vpAdapter = FAdapter(arrayListOf(ListFragment(0), ListFragment(1)), this)
         vp2.adapter = vpAdapter
         vp2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             /**

@@ -3,11 +3,9 @@ package com.arms.flowview.rv
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.arms.flowview.databinding.ItemTvBinding
 import java.lang.reflect.*
 
 /**
@@ -21,19 +19,25 @@ abstract class BaseRecyclerViewAdapter<T, V : ViewBinding, VB : BaseViewBindingH
     val TAG = "========="
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VB {
-        return createBaseDataBindingHolder(setViewBindingLayoutInflater(parent.context,parent))
+        Log.e(TAG,"onCreateViewHolder")
+        return createBaseDataBindingHolder(setViewBindingLayoutInflater(parent.context, parent))
     }
 
-    private fun setViewBindingLayoutInflater(context: Context,parent: ViewGroup):V{
+    private fun setViewBindingLayoutInflater(context: Context, parent: ViewGroup): V {
         var temp: Class<*>? = javaClass
         var z: Class<*>? = null
-        while (z == null && null != temp){
-            z = getKCLass(temp,ViewBinding::class.java)
+        while (z == null && null != temp) {
+            z = getKCLass(temp, ViewBinding::class.java)
             temp = temp.superclass
         }
         //inflate的方法需要调用这个不然xml当中的属性不会生效，没有给设置layoutmanager
-        val method: Method? = z?.getMethod("inflate", LayoutInflater::class.java,ViewGroup::class.java,Boolean::class.java)
-        val obj = method?.invoke(null,LayoutInflater.from(context),parent,false)
+        val method: Method? = z?.getMethod(
+            "inflate",
+            LayoutInflater::class.java,
+            ViewGroup::class.java,
+            Boolean::class.java
+        )
+        val obj = method?.invoke(null, LayoutInflater.from(context), parent, false)
         return obj as V
     }
 
@@ -42,7 +46,7 @@ abstract class BaseRecyclerViewAdapter<T, V : ViewBinding, VB : BaseViewBindingH
         var z: Class<*>? = null
         while (z == null && null != temp) {
             //这里就是一层层的去找BaseViewBindingHolder，子类找不到就去父类找，如果都找不到那就是null了
-            z = getKCLass(temp,BaseViewBindingHolder::class.java)
+            z = getKCLass(temp, BaseViewBindingHolder::class.java)
             temp = temp.superclass
         }
         // 泛型擦除会导致z为null
@@ -68,19 +72,19 @@ abstract class BaseRecyclerViewAdapter<T, V : ViewBinding, VB : BaseViewBindingH
             // inner and unstatic class
             //分为两种情况处理，如果是内部的非静态类或者其他
             return if (z.isMemberClass && !Modifier.isStatic(z.modifiers)) {
-                constructor = if(z == BaseViewBindingHolder::class.java){
+                constructor = if (z == BaseViewBindingHolder::class.java) {
                     z.getDeclaredConstructor(ViewBinding::class.java)
-                }else{
+                } else {
                     z.getDeclaredConstructor(v.javaClass)
                 }
                 constructor.isAccessible = true
                 constructor.newInstance(this, v) as VB
             } else {
                 //这里如果直接取v的class，类型是匹配不上，如果取super的话因为范型擦除的问题只能渠道Object。。。暂时直接写为ViewBinding
-                    //这里的getDeclaredConstructor必须是具体的数据类型。。所以在自定义viewHolder的时候要做兼容处理
-                constructor = if(z == BaseViewBindingHolder::class.java){
+                //这里的getDeclaredConstructor必须是具体的数据类型。。所以在自定义viewHolder的时候要做兼容处理
+                constructor = if (z == BaseViewBindingHolder::class.java) {
                     z.getDeclaredConstructor(ViewBinding::class.java)
-                }else{
+                } else {
                     z.getDeclaredConstructor(v.javaClass)
                 }
                 constructor.isAccessible = true
@@ -105,7 +109,7 @@ abstract class BaseRecyclerViewAdapter<T, V : ViewBinding, VB : BaseViewBindingH
      * @param z         需要被查找的class
      * @param findClazz 目标class类型
      */
-    private fun getKCLass(z: Class<*>,findClazz:Class<*>):Class<*>?{
+    private fun getKCLass(z: Class<*>, findClazz: Class<*>): Class<*>? {
         try {
             val type = z.genericSuperclass
             if (type is ParameterizedType) {
@@ -137,6 +141,7 @@ abstract class BaseRecyclerViewAdapter<T, V : ViewBinding, VB : BaseViewBindingH
     }
 
     override fun onBindViewHolder(holder: VB, position: Int) {
+        Log.e(TAG,"onBindViewHolder${position}")
         convert(holder, data?.get(position))
     }
 

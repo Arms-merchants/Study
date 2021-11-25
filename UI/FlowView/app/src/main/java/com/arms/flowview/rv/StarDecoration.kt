@@ -40,8 +40,6 @@ import com.arms.flowview.utils.ConverUtils
  *      因为悬停的标题会遮挡item view，所以绘制是在onDrawOver中进行的
  *      绘制的区域坐标
  *
- *
- *
  *    version: 1.0
  */
 class StarDecoration() : RecyclerView.ItemDecoration() {
@@ -65,7 +63,7 @@ class StarDecoration() : RecyclerView.ItemDecoration() {
     }
 
     private var rect: Rect = Rect()
-    private val headSize = ConverUtils.dp2px(30)
+    private val headSize = ConverUtils.dp2px(30f)
 
     override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDraw(c, parent, state)
@@ -92,7 +90,7 @@ class StarDecoration() : RecyclerView.ItemDecoration() {
             } else if(itemView.top-headSize-parent.paddingTop>=0) {
                 c.drawRect(
                     left.toFloat(),
-                    (itemView.top - ConverUtils.dp2px(1)).toFloat(),
+                    (itemView.top - ConverUtils.dp2px(1f)).toFloat(),
                     right.toFloat(), itemView.top.toFloat(), mHeadPaint
                 )
             }
@@ -168,7 +166,7 @@ class StarDecoration() : RecyclerView.ItemDecoration() {
         if (startAdapter.isGroupHead(itemViewPosition)) {
             outRect.set(0, headSize, 0, 0)
         } else {
-            outRect.set(0, ConverUtils.dp2px(1), 0, 0)
+            outRect.set(0, ConverUtils.dp2px(1f), 0, 0)
         }
     }
 

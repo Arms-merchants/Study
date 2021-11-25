@@ -29,6 +29,7 @@
             android:text="儿童洗衣机" />
 
         <TextView
+            android:id="@+id/tv_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_button_circular"

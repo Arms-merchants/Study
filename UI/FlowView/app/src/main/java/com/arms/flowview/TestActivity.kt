@@ -31,7 +31,7 @@ class TestActivity : AppCompatActivity() {
         val vp2 = findViewById<ViewPager2>(R.id.vp2)
         val tab = findViewById<TabLayout>(R.id.tab_layout)
         val content = arrayListOf("test1","test2","test3")
-        val fragments = arrayListOf<Fragment>(ListFragment(), ListFragment(), ListFragment())
+        val fragments = arrayListOf<Fragment>(ListFragment(0), ListFragment(1), ListFragment(2))
         vp2.adapter = FAdapter(fragments,this)
         TabLayoutMediator(tab,vp2
         ) { tab, position ->

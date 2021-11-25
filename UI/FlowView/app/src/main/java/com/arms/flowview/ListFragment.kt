@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.arms.flowview.adapter.RvAdapter
+import com.arms.flowview.ext.logE
+import com.arms.flowview.vp.TestFragment
 
 /**
  * <pre>
@@ -15,24 +17,54 @@ import com.arms.flowview.adapter.RvAdapter
  *    desc   :
  *    version: 1.0
  */
-class ListFragment:Fragment() {
+class ListFragment( val index: Int) : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_list,null)
+        "ListFragment ${index} onCreateView".logE()
+        return inflater.inflate(R.layout.fragment_list, null)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        "ListFragment ${index} onViewCreated".logE()
         val rv = view.findViewById<RecyclerView>(R.id.rv)
         val list = arrayListOf<String>()
-        for(i in 0..100){
+        for (i in 0..100) {
             list.add(i.toString())
         }
         val adapter = RvAdapter(list)
         rv.adapter = adapter
     }
+
+    override fun onResume() {
+        super.onResume()
+        "ListFragment ${index} onResume".logE()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        "ListFragment ${index} onStart".logE()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        "ListFragment ${index} onStop".logE()
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        "ListFragment ${index} onDetach".logE()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        "ListFragment ${index} onDestroy".logE()
+
+    }
+
+
 }
