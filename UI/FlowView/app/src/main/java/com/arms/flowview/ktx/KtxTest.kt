@@ -31,6 +31,18 @@ class KtxTest private constructor() {
             }
         }
 
+        fun test2(){
+            println("test2")
+        }
+
+        fun test3(){
+            println("test2")
+        }
+
+        fun test4(){
+            println("test2")
+        }
+
     }
 
 }
