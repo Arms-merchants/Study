@@ -6,6 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.distinctUntilChanged
+import com.arms.flowview.ext.launchAndRepeatWithViewLifecycle
+import kotlinx.coroutines.flow.collect
 
 /**
  * <pre>
@@ -15,10 +19,20 @@ import androidx.fragment.app.viewModels
  *    version: 1.0
  */
 class TestFragment : Fragment() {
-    val mTextModel by viewModels<TestViewModel>()
+    val mModel by viewModels<TestViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //distinctUntilChanged相当于数据有变化的时候才会收到通知
+        //framgnet中要使用viewLifecycleOwner
+        mModel.testData.distinctUntilChanged().observe(viewLifecycleOwner, Observer { })
+
+        launchAndRepeatWithViewLifecycle {
+            mModel.navigationEvnet.collect {
+
+            }
+        }
+
     }
 
     override fun onCreateView(

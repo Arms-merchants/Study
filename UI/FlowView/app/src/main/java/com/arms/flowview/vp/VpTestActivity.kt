@@ -12,9 +12,7 @@ import com.google.android.material.tabs.TabLayout
  *    version: 1.0
  */
 class VpTestActivity : BaseBindingActivity<ActivityVpTestBinding>() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun initView() {
         binding.apply {
             tabLayout.addTab(tabLayout.newTab().setText("tab0"))
             tabLayout.addTab(tabLayout.newTab().setText("tab1"))

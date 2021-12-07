@@ -60,4 +60,8 @@ dependencies {
     //recyclerviewadapter
     implementation("com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7")
 
+    //Logger
+    implementation("com.orhanobut:logger:2.2.0")
+
+    implementation("com.tojoy.bussinesscloud.app:FlycoTabLayout:1.0.11")
 }

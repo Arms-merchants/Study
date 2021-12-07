@@ -31,7 +31,10 @@ open abstract class BaseBindingActivity<T : ViewBinding> : AppCompatActivity() {
         )
         binding = method?.invoke(null, layoutInflater) as T
         setContentView(binding.root)
+        initView()
     }
+
+    abstract fun initView()
 
     /**
      * 在类的范型上查询符合需求的class
