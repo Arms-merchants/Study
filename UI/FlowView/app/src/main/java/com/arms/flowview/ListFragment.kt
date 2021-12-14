@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.arms.flowview.adapter.RvAdapter
 import com.arms.flowview.ext.logE
-import com.arms.flowview.vp.TestFragment
 
 /**
  * <pre>
@@ -17,13 +16,28 @@ import com.arms.flowview.vp.TestFragment
  *    desc   :
  *    version: 1.0
  */
-class ListFragment( val index: Int) : Fragment() {
+class ListFragment() : Fragment() {
+
+    private var index = 0
+
+    companion object {
+        const val INDEX = "index"
+        fun createInstance(index: Int): ListFragment {
+            val listFragment = ListFragment()
+            val bundle = Bundle()
+            bundle.putInt(INDEX, index)
+            listFragment.arguments = bundle
+            return listFragment
+        }
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        index = arguments?.getInt(INDEX, 0) ?: 0
         "ListFragment ${index} onCreateView".logE()
         return inflater.inflate(R.layout.fragment_list, null)
     }

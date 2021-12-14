@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/single"
+    app:startDestination="@id/top1Fragment">
+
+    <fragment
+        android:id="@+id/top1Fragment"
+        android:name="com.arms.flowview.singleac.SingleFragment"
+        android:label="fragment_top_1"
+        tools:layout="@layout/fragment_top_1">
+
+        <action
+            android:id="@+id/action_1_to_vp2"
+            app:destination="@id/fragment_vp_2" />
+
+        <action
+            android:id="@+id/action_2_nested_scroll"
+            app:destination="@id/fragment_nested_test" />
+
+        <action
+            android:id="@+id/action_3_to_tab"
+            app:destination="@id/fragment_tab" />
+
+        <action
+            android:id="@+id/action_4_to_drag"
+            app:destination="@id/fragemnt_drag_view" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_vp_2"
+        android:name="com.arms.flowview.vp.FragmentVp2"
+        android:label="fragment_vp_2"
+        tools:layout="@layout/fragment_vp_2">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_nested_test"
+        android:name="com.arms.flowview.nestedScroll.NestredScrollTestFragment"
+        android:label="fragment_nested_test"
+        tools:layout="@layout/fragment_nested_scroll_test">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_tab"
+        android:name="com.arms.flowview.tab.TabFragment"
+        android:label="fragment_tab"
+        tools:layout="@layout/fragment_tab" />
+
+    <fragment
+        android:id="@+id/fragemnt_drag_view"
+        android:name="com.arms.flowview.drag.DragViewFragment"
+        android:label="framgent_drag_view"
+        tools:layout="@layout/fragment_drag_view" />
+
+
+</navigation>

@@ -1,10 +1,9 @@
-package com.arms.flowview
+package com.arms.flowview.rv
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.arms.flowview.databinding.ActivityRvBinding
-import com.arms.flowview.rv.*
 import com.arms.flowview.rv.card.*
 
 /**

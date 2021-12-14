@@ -19,7 +19,6 @@ abstract class BaseRecyclerViewAdapter<T, V : ViewBinding, VB : BaseViewBindingH
     val TAG = "========="
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VB {
-        Log.e(TAG,"onCreateViewHolder")
         return createBaseDataBindingHolder(setViewBindingLayoutInflater(parent.context, parent))
     }
 
@@ -141,7 +140,6 @@ abstract class BaseRecyclerViewAdapter<T, V : ViewBinding, VB : BaseViewBindingH
     }
 
     override fun onBindViewHolder(holder: VB, position: Int) {
-        Log.e(TAG,"onBindViewHolder${position}")
         convert(holder, data?.get(position))
     }
 

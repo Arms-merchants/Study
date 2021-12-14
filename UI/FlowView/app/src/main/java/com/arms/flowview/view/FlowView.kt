@@ -105,7 +105,8 @@ class FlowView : ViewGroup {
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         //如果当前的布局给定了固定的宽高，那么直接用给的宽高而不是测量子view算出的宽高
         val realWidth = if (widthMode == MeasureSpec.EXACTLY) maxWidth else parentNeededWidth
-        val realHeight = if (heightMode == MeasureSpec.EXACTLY) maxHeight else parentNeededHeight
+        val realHeight =
+            if (heightMode == MeasureSpec.EXACTLY) maxHeight else parentNeededHeight + paddingTop + paddingBottom
         setMeasuredDimension(realWidth, realHeight)
     }
 

@@ -17,23 +17,27 @@ import com.google.android.material.tabs.TabLayoutMediator
  *    desc   : 仿淘宝首页的效果
  *    version: 1.0
  */
-class TestActivity : AppCompatActivity() {
-
+class TaoBaoHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scroll_test)
         val rvHeader = findViewById<RecyclerView>(R.id.rv_header)
         val headerData = arrayListOf<String>()
-        for(i in 0..3){
+        for (i in 0..3) {
             headerData.add("头部${i}")
         }
         rvHeader.adapter = RvAdapter(headerData)
         val vp2 = findViewById<ViewPager2>(R.id.vp2)
         val tab = findViewById<TabLayout>(R.id.tab_layout)
-        val content = arrayListOf("test1","test2","test3")
-        val fragments = arrayListOf<Fragment>(ListFragment(0), ListFragment(1), ListFragment(2))
-        vp2.adapter = FAdapter(fragments,this)
-        TabLayoutMediator(tab,vp2
+        val content = arrayListOf("test1", "test2", "test3")
+        val fragments = arrayListOf<Fragment>(
+            ListFragment.createInstance(0),
+            ListFragment.createInstance(1),
+            ListFragment.createInstance(2)
+        )
+        vp2.adapter = FAdapter(fragments, this)
+        TabLayoutMediator(
+            tab, vp2
         ) { tab, position ->
             tab.text = content[position]
         }.attach()

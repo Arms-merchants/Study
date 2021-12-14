@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.orhanobut.logger.Logger
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -15,7 +16,7 @@ import kotlinx.coroutines.launch
  *    version: 1.0
  */
 fun String.logE() {
-    Log.e("====", this)
+    Logger.e(this)
 }
 
 inline fun Fragment.launchAndRepeatWithViewLifecycle(

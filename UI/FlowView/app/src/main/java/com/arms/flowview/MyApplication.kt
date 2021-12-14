@@ -1,6 +1,7 @@
 package com.arms.flowview
 
 import android.app.Application
+import com.arms.flowview.utils.Utils
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.FormatStrategy
 import com.orhanobut.logger.Logger
@@ -19,11 +20,12 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        val applicationScope = CoroutineScope(SupervisorJob()+Dispatchers.Main.immediate)
+        val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
         val formatStrategy = PrettyFormatStrategy.newBuilder()
             .tag("TAG")
             .build()
         Logger.addLogAdapter(AndroidLogAdapter(formatStrategy))
+        Utils.init(this)
     }
 
 }

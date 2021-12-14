@@ -1,13 +1,14 @@
 package com.arms.flowview
 
 import android.content.Intent
-import android.os.Bundle
 import com.arms.flowview.base.BaseBindingActivity
 import com.arms.flowview.databinding.ActivityIndexBinding
 import com.arms.flowview.databinding.ItemIndexBinding
 import com.arms.flowview.ktx.KtxTestActivity
 import com.arms.flowview.rv.BaseRecyclerViewAdapter
 import com.arms.flowview.rv.BaseViewBindingHolder
+import com.arms.flowview.rv.RvListActivity
+import com.arms.flowview.singleac.SingleActivity
 import com.arms.flowview.vp.TestVp2Activity
 import com.arms.flowview.vp.VpTestActivity
 
@@ -27,8 +28,9 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
             "ViewPage2" to TestVp2Activity::class.java,
             "RecyclerView" to RvListActivity::class.java,
             "TextColorChange" to TvColorChangeActivity::class.java,
-            "仿淘宝" to TestActivity::class.java,
-            "KTX相关的测试" to KtxTestActivity::class.java
+            "仿淘宝" to TaoBaoHomeActivity::class.java,
+            "KTX相关的测试" to KtxTestActivity::class.java,
+            "单Activity" to SingleActivity::class.java
         )
         binding.rv.adapter = object :
             BaseRecyclerViewAdapter<Pair<String, Class<*>>, ItemIndexBinding, BaseViewBindingHolder<ItemIndexBinding>>(

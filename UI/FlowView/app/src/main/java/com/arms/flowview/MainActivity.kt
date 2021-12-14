@@ -6,10 +6,12 @@ import androidx.core.view.WindowInsetsCompat
 import com.arms.flowview.base.BaseBindingActivity
 import com.arms.flowview.databinding.ActivityMainBinding
 import com.arms.flowview.ext.logE
+import com.arms.flowview.utils.KeyboardUtils
 
 class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
 
     override fun initView() {
+        KeyboardUtils.fixAndroidBug5497(this)
         WindowCompat.setDecorFitsSystemWindows(window, false)
         //这里就是只要你够快在线程检查之前去修改那么就没有问题，这里就是要查看Activity的启动流程
         Thread {
