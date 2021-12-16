@@ -63,5 +63,6 @@ dependencies {
     implementation("com.orhanobut:logger:2.2.0")
     //tablayout 修改支持ViewPage2
     implementation("com.tojoy.bussinesscloud.app:FlycoTabLayout:1.0.11")
-
+    //coil图片加载框架
+    implementation("io.coil-kt:coil:1.4.0")
 }

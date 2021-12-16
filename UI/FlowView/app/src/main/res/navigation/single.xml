@@ -27,6 +27,18 @@
             android:id="@+id/action_4_to_drag"
             app:destination="@id/fragemnt_drag_view" />
 
+        <action
+            android:id="@+id/action_5_to_card_motion"
+            app:destination="@id/fragment_card_motion" />
+
+        <action
+            android:id="@+id/action_6_to_motion_swipe"
+            app:destination="@id/fragment_motion_swipe" />
+
+        <action
+            android:id="@+id/action_7_to_motion_car"
+            app:destination="@id/fragment_car_motion" />
+
     </fragment>
 
     <fragment
@@ -56,6 +68,27 @@
         android:name="com.arms.flowview.drag.DragViewFragment"
         android:label="framgent_drag_view"
         tools:layout="@layout/fragment_drag_view" />
+
+
+    <fragment
+        android:id="@+id/fragment_card_motion"
+        android:name="com.arms.flowview.motion.CardMotionFragment"
+        android:label="fragment_card_motion"
+        tools:layout="@layout/fragment_card_motion" />
+
+    <fragment
+        android:id="@+id/fragment_motion_swipe"
+        android:name="com.arms.flowview.motion.MotionSwipeFragment"
+        android:label="fragment_motion_swipe"
+        tools:layout="@layout/fragment_motion_swipe" />
+
+    <fragment
+        android:id="@+id/fragment_car_motion"
+        android:name="com.arms.flowview.motion.CarMotionFragment"
+        android:label="fragment_car_motion"
+        tools:layout="@layout/fragment_motion_car"
+
+        />
 
 
 </navigation>

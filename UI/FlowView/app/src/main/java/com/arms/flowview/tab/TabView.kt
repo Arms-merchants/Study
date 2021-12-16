@@ -10,7 +10,7 @@ import com.orhanobut.logger.Logger
 import kotlin.math.abs
 
 /**
- *    author : heyueyang
+ *    author : Bio
  *    time   : 2021/12/10
  *    desc   :
  *    1。测量子view的总的宽然后想家这样就获得到了具体的宽

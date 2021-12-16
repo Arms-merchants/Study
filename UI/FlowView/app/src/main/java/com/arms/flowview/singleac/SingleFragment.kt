@@ -26,6 +26,9 @@ class SingleFragment : BaseBindingFragment<FragmentTop1Binding>() {
             add("NestedScroll" to R.id.action_2_nested_scroll)
             add("Tab" to R.id.action_3_to_tab)
             add("Drag" to R.id.action_4_to_drag)
+            add("MotionCard" to R.id.action_5_to_card_motion)
+            add("MotionSwipe" to R.id.action_6_to_motion_swipe)
+            add("MotionCar" to R.id.action_7_to_motion_car)
         }
         binding.rvIndex.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(
