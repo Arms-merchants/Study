@@ -29,6 +29,7 @@ class SingleFragment : BaseBindingFragment<FragmentTop1Binding>() {
             add("MotionCard" to R.id.action_5_to_card_motion)
             add("MotionSwipe" to R.id.action_6_to_motion_swipe)
             add("MotionCar" to R.id.action_7_to_motion_car)
+            add("ImageMotion" to R.id.action_8_to_image_motion)
         }
         binding.rvIndex.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(
