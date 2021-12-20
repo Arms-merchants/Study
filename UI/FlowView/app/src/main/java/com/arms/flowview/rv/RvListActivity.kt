@@ -3,6 +3,8 @@ package com.arms.flowview.rv
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.arms.flowview.configs.RouteUrl
 import com.arms.flowview.databinding.ActivityRvBinding
 import com.arms.flowview.rv.card.*
 
@@ -13,6 +15,7 @@ import com.arms.flowview.rv.card.*
  *    desc   :
  *    version: 1.0
  */
+@Route(path = RouteUrl.RecyclerViewUrl)
 class RvListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRvBinding

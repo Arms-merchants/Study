@@ -2,8 +2,10 @@ package com.arms.flowview.ktx
 
 import android.content.Intent
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.arms.flowview.*
 import com.arms.flowview.base.BaseBindingActivity
+import com.arms.flowview.configs.RouteUrl
 import com.arms.flowview.databinding.ActivityIndexBinding
 import com.arms.flowview.databinding.ItemIndexBinding
 import com.arms.flowview.rv.BaseRecyclerViewAdapter
@@ -15,6 +17,7 @@ import com.arms.flowview.rv.BaseViewBindingHolder
  *    desc   :
  *    version: 1.0
  */
+@Route(path = RouteUrl.KtxTestUrl)
 class KtxTestActivity : BaseBindingActivity<ActivityIndexBinding>() {
 
     override fun initView() {

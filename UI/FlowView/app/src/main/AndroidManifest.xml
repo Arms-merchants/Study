@@ -32,8 +32,8 @@
         <activity android:name=".vp.TestVp2Activity" />
         <activity android:name=".ktx.LiveDataTestActivity" />
         <activity android:name=".ktx.KtxTestActivity" />
-
         <activity android:name=".singleac.SingleActivity" />
+        <activity android:name=".nestedScroll.BehaviorTestActivity"/>
 
     </application>
 

@@ -34,7 +34,7 @@ class ImageMotionFragment : BaseBindingFragment<FragmentMotionImageBinding>() {
             override fun populate(view: View?, index: Int) {
                 "Cureent index:${index}----carouselIndex:${binding.carousel.currentIndex}".logE()
                 if (view is ImageView) {
-                    view.setImageResource(imags[index])
+                    view.load(imags[index])
                 }
             }
 

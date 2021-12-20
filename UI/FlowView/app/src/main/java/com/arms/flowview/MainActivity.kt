@@ -3,11 +3,14 @@ package com.arms.flowview
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.arms.flowview.base.BaseBindingActivity
+import com.arms.flowview.configs.RouteUrl
 import com.arms.flowview.databinding.ActivityMainBinding
 import com.arms.flowview.ext.logE
 import com.arms.flowview.utils.KeyboardUtils
 
+@Route(path = RouteUrl.FlowViewUrl)
 class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
 
     override fun initView() {
@@ -28,5 +31,9 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
 
             windowInsets
         }
+        binding.btCloseIme.setOnClickListener {
+            binding.ivTest.offsetLeftAndRight(200)
+        }
+
     }
 }

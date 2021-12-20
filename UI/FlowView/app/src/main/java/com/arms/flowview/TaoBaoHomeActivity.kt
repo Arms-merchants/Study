@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.arms.flowview.adapter.FAdapter
 import com.arms.flowview.adapter.RvAdapter
+import com.arms.flowview.configs.RouteUrl
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -17,6 +19,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  *    desc   : 仿淘宝首页的效果
  *    version: 1.0
  */
+@Route(path = RouteUrl.TaoBaoEXUrl)
 class TaoBaoHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

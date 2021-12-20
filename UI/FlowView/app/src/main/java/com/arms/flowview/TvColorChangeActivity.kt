@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.arms.flowview.adapter.FAdapter
+import com.arms.flowview.configs.RouteUrl
 import com.arms.flowview.view.ColorChangeTextView
 
 /**
@@ -16,6 +18,7 @@ import com.arms.flowview.view.ColorChangeTextView
  *    下面的实现效果还有问题，需要而且文本的绘制方向也没有实现。
  *    version: 1.0
  */
+@Route(path = RouteUrl.TextColorChangeUrl)
 class TvColorChangeActivity : AppCompatActivity() {
 
     private lateinit var tab1: ColorChangeTextView

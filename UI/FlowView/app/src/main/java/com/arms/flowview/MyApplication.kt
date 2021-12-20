@@ -1,6 +1,7 @@
 package com.arms.flowview
 
 import android.app.Application
+import com.alibaba.android.arouter.launcher.ARouter
 import com.arms.flowview.utils.Utils
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.FormatStrategy
@@ -26,6 +27,11 @@ class MyApplication : Application() {
             .build()
         Logger.addLogAdapter(AndroidLogAdapter(formatStrategy))
         Utils.init(this)
+
+        //Arouter初始化
+        ARouter.openLog()
+        ARouter.openDebug()
+        ARouter.init(this)
     }
 
 }

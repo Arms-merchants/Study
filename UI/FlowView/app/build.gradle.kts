@@ -1,7 +1,9 @@
+
 plugins {
     id("com.android.application")
     kotlin("android")
     id("com.github.wuyr.incrementalcompiler") version "1.0.0"
+    id("kotlin-kapt")
 }
 
 android {
@@ -35,6 +37,12 @@ android {
     }
 }
 
+kapt{
+    arguments {
+        arg("AROUTER_MODULE_NAME",project.name)
+    }
+}
+
 dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
@@ -65,4 +73,7 @@ dependencies {
     implementation("com.tojoy.bussinesscloud.app:FlycoTabLayout:1.0.11")
     //coil图片加载框架
     implementation("io.coil-kt:coil:1.4.0")
+
+    implementation("com.alibaba:arouter-api:1.5.2")
+    kapt("com.alibaba:arouter-compiler:1.5.2")
 }

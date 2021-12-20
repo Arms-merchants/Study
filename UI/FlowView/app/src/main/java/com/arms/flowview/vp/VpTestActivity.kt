@@ -1,7 +1,9 @@
 package com.arms.flowview.vp
 
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.arms.flowview.base.BaseBindingActivity
+import com.arms.flowview.configs.RouteUrl
 import com.arms.flowview.databinding.ActivityVpTestBinding
 import com.google.android.material.tabs.TabLayout
 
@@ -11,6 +13,7 @@ import com.google.android.material.tabs.TabLayout
  *    desc   :
  *    version: 1.0
  */
+@Route(path = RouteUrl.ViewPageUrl)
 class VpTestActivity : BaseBindingActivity<ActivityVpTestBinding>() {
     override fun initView() {
         binding.apply {

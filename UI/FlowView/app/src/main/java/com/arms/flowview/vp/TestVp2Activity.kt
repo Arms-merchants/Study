@@ -2,8 +2,10 @@ package com.arms.flowview.vp
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.arms.flowview.adapter.FAdapter
 import com.arms.flowview.base.BaseBindingActivity
+import com.arms.flowview.configs.RouteUrl
 import com.arms.flowview.databinding.ActivityVp2TestBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -13,6 +15,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  *    desc   :
  *    version: 1.0
  */
+@Route(path = RouteUrl.ViewPager2Url)
 class TestVp2Activity : BaseBindingActivity<ActivityVp2TestBinding>() {
 
     override fun initView() {
