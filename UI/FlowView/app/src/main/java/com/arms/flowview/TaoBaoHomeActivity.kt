@@ -11,6 +11,7 @@ import com.arms.flowview.adapter.RvAdapter
 import com.arms.flowview.configs.RouteUrl
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.orhanobut.logger.Logger
 
 /**
  * <pre>
@@ -44,6 +45,8 @@ class TaoBaoHomeActivity : AppCompatActivity() {
         ) { tab, position ->
             tab.text = content[position]
         }.attach()
+
+        Logger.e("123123123")
     }
 
 }

@@ -1,7 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
-        //maven { url uri("/Users/heyueyang/lockMaven/repo") }
+        maven { setUrl("https://maven.aliyun.com/repository/central") }
+        maven { setUrl("https://maven.aliyun.com/repository/public") }
+        maven { setUrl("https://maven.aliyun.com/repository/google") }
+        maven { setUrl("https://maven.aliyun.com/repository/gradle-plugin") }
         google()
         mavenCentral()
     }

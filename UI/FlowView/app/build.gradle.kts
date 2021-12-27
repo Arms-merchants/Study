@@ -2,7 +2,8 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    id("com.github.wuyr.incrementalcompiler") version "1.0.0"
+    //https://github.com/wuyr/incremental-compiler一个只变异修改后的文件的加速方案，然后生成一个dex，然后通过动态加载的（dexclassloader）实现方式替换已安装
+    //App中的dex，
     id("kotlin-kapt")
 }
 
@@ -73,7 +74,10 @@ dependencies {
     implementation("com.tojoy.bussinesscloud.app:FlycoTabLayout:1.0.11")
     //coil图片加载框架
     implementation("io.coil-kt:coil:1.4.0")
-
+    //Arouter路由框架
     implementation("com.alibaba:arouter-api:1.5.2")
     kapt("com.alibaba:arouter-compiler:1.5.2")
+    //epic方法hook
+    //implementation("com.github.tiann:epic:0.11.2")
+
 }

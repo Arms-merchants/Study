@@ -31,4 +31,6 @@ object RouteUrl {
 
     const val BehaviorTestUrl = "/url/BehaviorTest"
 
+    const val Test = "sdfsdfsfsdfsdf"
+
 }

@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.constraintlayout.helper.widget.Carousel
 import coil.load
+import coil.transform.BlurTransformation
 import com.arms.flowview.R
 import com.arms.flowview.base.BaseBindingFragment
 import com.arms.flowview.databinding.FragmentMotionImageBinding
@@ -32,14 +33,16 @@ class ImageMotionFragment : BaseBindingFragment<FragmentMotionImageBinding>() {
             }
 
             override fun populate(view: View?, index: Int) {
-                "Cureent index:${index}----carouselIndex:${binding.carousel.currentIndex}".logE()
                 if (view is ImageView) {
                     view.load(imags[index])
                 }
             }
 
             override fun onNewItem(index: Int) {
-                binding.ivBack.load(imags[index])
+                binding.ivBack.load(imags[index]){
+                    //毛玻璃效果
+                    transformations(BlurTransformation(requireContext()))
+                }
             }
 
         })

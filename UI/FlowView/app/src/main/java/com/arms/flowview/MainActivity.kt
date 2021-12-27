@@ -9,6 +9,7 @@ import com.arms.flowview.configs.RouteUrl
 import com.arms.flowview.databinding.ActivityMainBinding
 import com.arms.flowview.ext.logE
 import com.arms.flowview.utils.KeyboardUtils
+import com.orhanobut.logger.Logger
 
 @Route(path = RouteUrl.FlowViewUrl)
 class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
@@ -34,6 +35,10 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
         binding.btCloseIme.setOnClickListener {
             binding.ivTest.offsetLeftAndRight(200)
         }
-
+        binding.et.setText("12312313")
+        Logger.e("123123123")
+        Logger.e("123123123")
+        Logger.e("123123123")
+        Logger.e("123123123")
     }
 }

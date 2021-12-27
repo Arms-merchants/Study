@@ -9,7 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 /**
  *    author : heyueyang
  *    time   : 2021/12/16
- *    desc   :
+ *    desc   : 结合DrawerLayout和MotionLayout来实现的侧滑菜单
  *    version: 1.0
  */
 class DrawerContent @JvmOverloads constructor(

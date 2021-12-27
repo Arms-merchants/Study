@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.arms.flowview.configs.RouteUrl
+import com.orhanobut.logger.Logger
 
 /**
  * <pre>
@@ -18,6 +19,8 @@ class TestFishActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_fish)
+
+        Logger.e("123123123")
     }
 
 }
