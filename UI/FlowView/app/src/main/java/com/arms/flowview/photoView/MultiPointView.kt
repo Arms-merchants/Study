@@ -8,9 +8,9 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import com.arms.flowview.R
+import com.arms.flowview.ext.logE
 import com.arms.flowview.utils.ConverUtils
 import com.arms.flowview.utils.ImageUtils
-import com.orhanobut.logger.Logger
 
 /**
  *    author : heyueyang
@@ -87,16 +87,18 @@ class MultiPointView : View {
                 //多指操作的情况下，从第二个手机落下时会触发
                 //获取当前的落下的下标
                 val actionIndex = event.actionIndex
-                Logger.e("actionIndex:${actionIndex}")
                 //通过下标获取对应的手指ID，
                 currentPointId = event.getPointerId(actionIndex)
+                "current id:${currentPointId}".logE()
                 downX = event.getX(actionIndex)
                 downY = event.getY(actionIndex)
                 lastOffsetX = offsetX
                 lastOffsetY = offsetY
+
             }
             MotionEvent.ACTION_POINTER_UP -> {
                 var upIndex = event.actionIndex
+                "ACTION_POINTER_UP ${upIndex}".logE()
                 val pointId = event.getPointerId(upIndex)
                 //值处理当前正在相应事件的手指
                 if (pointId == currentPointId) {
@@ -114,11 +116,12 @@ class MultiPointView : View {
                     lastOffsetX = offsetX
                     lastOffsetY = offsetY
                 }
-
             }
-
+            MotionEvent.ACTION_UP->{
+                var index = event.actionIndex
+                "ACTION_UP ${index}".logE()
+            }
         }
-
         return true
     }
 

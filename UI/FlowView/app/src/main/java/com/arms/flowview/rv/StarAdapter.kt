@@ -6,7 +6,7 @@ import com.arms.flowview.databinding.ItemTvBinding
  * Created by heyueyang on 2021/11/16
  * 两种方式，分别支持默认的viewHolder和自定义的ViewHolder
  */
-class StarAdapter(val data: MutableList<StarBean>?) :
+class StarAdapter(data: MutableList<StarBean>?) :
     BaseRecyclerViewAdapter<StarBean, ItemTvBinding, StarAdapter.MyViewHolder>(data) {
 
     override fun convert(holder: MyViewHolder, item: StarBean?) {

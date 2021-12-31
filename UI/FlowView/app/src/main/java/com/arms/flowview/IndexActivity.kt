@@ -34,7 +34,8 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
             "仿淘宝" to RouteUrl.TaoBaoEXUrl,
             "KTX相关的测试" to RouteUrl.KtxTestUrl,
             "单Activity" to RouteUrl.SingleActivityUrl,
-            "BehaviorTest" to RouteUrl.BehaviorTestUrl
+            "BehaviorTest" to RouteUrl.BehaviorTestUrl,
+            "HiltTest" to RouteUrl.HILTESTURL
         )
         binding.rv.adapter = object :
             BaseRecyclerViewAdapter<Pair<String, String>, ItemIndexBinding, BaseViewBindingHolder<ItemIndexBinding>>(

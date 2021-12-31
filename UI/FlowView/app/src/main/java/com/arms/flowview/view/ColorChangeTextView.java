@@ -13,7 +13,8 @@ import androidx.appcompat.widget.AppCompatTextView;
  * <pre>
  *    author : heyueyang
  *    time   : 2021/11/09
- *    desc   :
+ *    desc   : 通过画布裁剪进行文本变色的绘制效果，其中mPercent代表当前的比例，实现原理，绘制两层的text设置不同的
+ *    文本颜色，但是通过clipRect裁剪显示区域，并根据进度做刷新从而实现了根据进度变色的效果。
  *    version: 1.0
  */
 public class ColorChangeTextView extends AppCompatTextView {
@@ -83,12 +84,16 @@ public class ColorChangeTextView extends AppCompatTextView {
         canvas.save();
         mPain.setColor(Color.BLUE);
         String text = getText().toString();
+        //这里是为了获取文本的绘制基线的
         Paint.FontMetrics fontMetrics = mPain.getFontMetrics();
+        //获取文本的宽度
         float textWidth = mPain.measureText(text);
         float x = getWidth() / 2 - textWidth / 2;
         float baseline = getHeight() / 2 - (fontMetrics.descent + fontMetrics.ascent) / 2;
+        //获取裁剪的矩形区域代表有多大的区域要绘制为蓝色的文字字体
         float left = getWidth() / 2 - textWidth / 2;
         float right = left + textWidth * mPercent;
+
         Rect rect = new Rect((int) left, 0, (int) right, getHeight());
         canvas.clipRect(rect);
         canvas.drawText(text, x, baseline, mPain);

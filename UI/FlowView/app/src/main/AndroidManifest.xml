@@ -34,6 +34,7 @@
         <activity android:name=".ktx.KtxTestActivity" />
         <activity android:name=".singleac.SingleActivity" />
         <activity android:name=".nestedScroll.BehaviorTestActivity"/>
+        <activity android:name=".hilt.TestHiltActivity"/>
 
     </application>
 

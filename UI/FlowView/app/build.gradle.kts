@@ -1,10 +1,10 @@
-
 plugins {
     id("com.android.application")
     kotlin("android")
     //https://github.com/wuyr/incremental-compiler一个只变异修改后的文件的加速方案，然后生成一个dex，然后通过动态加载的（dexclassloader）实现方式替换已安装
     //App中的dex，
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -38,9 +38,9 @@ android {
     }
 }
 
-kapt{
+kapt {
     arguments {
-        arg("AROUTER_MODULE_NAME",project.name)
+        arg("AROUTER_MODULE_NAME", project.name)
     }
 }
 
@@ -79,5 +79,17 @@ dependencies {
     kapt("com.alibaba:arouter-compiler:1.5.2")
     //epic方法hook
     //implementation("com.github.tiann:epic:0.11.2")
+
+    //AutoService
+    kapt("com.google.auto.service:auto-service:1.0.1")
+    annotationProcessor("com.google.auto.service:auto-service:1.0.1")
+    implementation("com.google.auto.service:auto-service:1.0.1")
+
+    //hilt
+    implementation("com.google.dagger:hilt-android:2.40")
+    kapt("com.google.dagger:hilt-android-compiler:2.40")
+
+    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    kapt ("androidx.hilt:hilt-compiler:1.0.0-beta01")
 
 }

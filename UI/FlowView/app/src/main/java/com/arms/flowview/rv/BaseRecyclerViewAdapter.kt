@@ -4,6 +4,8 @@ import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.IntRange
+import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import java.lang.reflect.*
@@ -12,9 +14,12 @@ import java.lang.reflect.*
  * Created by heyueyang on 2021/11/16
  */
 abstract class BaseRecyclerViewAdapter<T, V : ViewBinding, VB : BaseViewBindingHolder<V>> constructor(
-    private val data: MutableList<T>? = null
+    data: MutableList<T>? = null
 ) :
     RecyclerView.Adapter<VB>() {
+    //设置数据只允许get
+    var data: MutableList<T> = data ?: arrayListOf()
+        internal set
 
     val TAG = "========="
 
@@ -154,6 +159,43 @@ abstract class BaseRecyclerViewAdapter<T, V : ViewBinding, VB : BaseViewBindingH
     protected abstract fun convert(holder: VB, item: T?)
 
     override fun getItemCount(): Int {
-        return data?.size ?: 0
+        return data.size
     }
+
+    /**
+     * 设置全新的数据
+     */
+    open fun setNewInstance(list: MutableList<T>?) {
+        if (list === this.data) {
+            return
+        }
+        this.data = list ?: arrayListOf()
+        notifyDataSetChanged()
+    }
+
+    /**
+     * 在指定位置加入新的数据
+     */
+    open fun addData(@IntRange(from = 0) position: Int, newData: Collection<T>) {
+        this.data.addAll(position, newData)
+        notifyItemRangeChanged(position, newData.size)
+    }
+
+    /**
+     * 添加新的数据
+     */
+    open fun addData(@NonNull newData: Collection<T>) {
+        this.data.addAll(newData)
+        notifyItemRangeInserted(this.data.size - newData.size, newData.size)
+    }
+
+    /**
+     * 添加一条数据
+     */
+    open fun addData(@NonNull data: T) {
+        this.data.add(data)
+        notifyItemInserted(this.data.size)
+    }
+
+
 }

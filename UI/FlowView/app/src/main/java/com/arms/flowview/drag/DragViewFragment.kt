@@ -17,6 +17,8 @@ class DragViewFragment : BaseBindingFragment<FragmentDragViewBinding>() {
         for (i in 0..100) {
             list.add(StarBean(i.toString(), i.toString()))
         }
-        binding.rv.adapter = StarAdapter(list)
+        val adapter = StarAdapter(null)
+        binding.rv.adapter = adapter
+        adapter.setNewInstance(list)
     }
 }

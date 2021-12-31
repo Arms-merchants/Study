@@ -13,7 +13,7 @@ import java.lang.reflect.ParameterizedType
 /**
  *    author : heyueyang
  *    time   : 2021/11/24
- *    desc   :
+ *    desc   : 电气引擎
  *    version: 1.0
  */
 open abstract class BaseBindingActivity<T : ViewBinding> : AppCompatActivity() {

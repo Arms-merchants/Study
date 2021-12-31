@@ -17,7 +17,7 @@ class GalleryFragment : Fragment() {
     ): View? {
         val root: View = inflater.inflate(R.layout.fragment_gallery, container, false)
         val textView = root.findViewById<TextView>(R.id.text_gallery)
-        galleryViewModel!!.text.observe(viewLifecycleOwner, { s -> textView.text = s })
+        galleryViewModel.text.observe(viewLifecycleOwner, { s -> textView.text = s })
         return root
     }
 }

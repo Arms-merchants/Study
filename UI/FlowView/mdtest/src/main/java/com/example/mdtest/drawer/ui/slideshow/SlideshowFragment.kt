@@ -18,7 +18,7 @@ class SlideshowFragment : Fragment() {
     ): View? {
         val root: View = inflater.inflate(R.layout.fragment_slideshow, container, false)
         val textView: TextView = root.findViewById<TextView>(R.id.text_slideshow)
-        slideshowViewModel!!.text.observe(viewLifecycleOwner, { s -> textView.setText(s) })
+        slideshowViewModel.text.observe(viewLifecycleOwner, { s -> textView.setText(s) })
         return root
     }
 }
