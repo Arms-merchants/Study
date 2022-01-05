@@ -44,7 +44,7 @@
         android:id="@+id/fragment_vp_2"
         android:name="com.arms.flowview.vp.FragmentVp2"
         android:label="fragment_vp_2"
-        tools:layout="@layout/fragment_vp_2"/>
+        tools:layout="@layout/fragment_vp_2" />
 
     <fragment
         android:id="@+id/fragemnt_drag_view"
@@ -89,6 +89,5 @@
         </argument>
 
     </fragment>
-
 
 </navigation>

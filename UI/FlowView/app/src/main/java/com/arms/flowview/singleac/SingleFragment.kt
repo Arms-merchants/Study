@@ -13,6 +13,7 @@ import com.arms.flowview.rv.BaseRecyclerViewAdapter
 import com.arms.flowview.rv.BaseViewBindingHolder
 import com.arms.flowview.showFragment.ShowFragment
 import com.arms.flowview.utils.ConverUtils
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  *    author : heyueyang
@@ -20,6 +21,7 @@ import com.arms.flowview.utils.ConverUtils
  *    desc   : 单一fragment的入口
  *    version: 1.0
  */
+@AndroidEntryPoint
 class SingleFragment : BaseBindingFragment<FragmentTop1Binding>() {
 
     override fun initView() {
@@ -39,7 +41,7 @@ class SingleFragment : BaseBindingFragment<FragmentTop1Binding>() {
         /**
          * 配合上面的action_11_to_base_show来使用，key相同查找layout，然后传给ShowFragment展示，适合只有单个view需要展示的时候使用
          **/
-        val justShowFragmentParams  = arrayListOf<Pair<String,Int>>().apply {
+        val justShowFragmentParams = arrayListOf<Pair<String, Int>>().apply {
             add("NestedScroll" to R.layout.fragment_nested_scroll_test)
             add("Tab" to R.layout.fragment_tab)
             add("Photo" to R.layout.fragment_photo_view)
@@ -65,26 +67,26 @@ class SingleFragment : BaseBindingFragment<FragmentTop1Binding>() {
                 holder: BaseViewBindingHolder<ItemIndexBoxBinding>,
                 item: Pair<String, Int>?
             ) {
-                if(item == null){
+                if (item == null) {
                     return
                 }
                 holder.vb.bt.text = item.first
                 holder.vb.bt.setOnClickListener {
-                    val layoutId = justShowFragmentParams.firstOrNull{it.first == item.first}
-                    if(layoutId == null){
+                    val layoutId = justShowFragmentParams.firstOrNull { it.first == item.first }
+                    if (layoutId == null) {
                         navigate(item.second)
-                    }else{
+                    } else {
                         val bundle = Bundle()
-                        bundle.putInt(ShowFragment.LAYOUT_ID,layoutId.second)
-                        navigate(item.second,bundle)
+                        bundle.putInt(ShowFragment.LAYOUT_ID, layoutId.second)
+                        navigate(item.second, bundle)
                     }
                 }
             }
         }
     }
 
-    private fun navigate(id: Int,bundle: Bundle? = null) {
-        NavHostFragment.findNavController(this).navigate(id,bundle)
+    private fun navigate(id: Int, bundle: Bundle? = null) {
+        NavHostFragment.findNavController(this).navigate(id, bundle)
     }
 
 

@@ -1,8 +1,6 @@
 package com.arms.flowview.configs
 
 
-
-
 /**
  *    author : heyueyang
  *    time   : 2021/12/20
@@ -27,11 +25,13 @@ object RouteUrl {
 
     const val SingleActivityUrl = "/url/SingleActivity"
 
-    const val TaoBaoEXUrl ="/url/TaoBaoHomeActivity"
+    const val TaoBaoEXUrl = "/url/TaoBaoHomeActivity"
 
     const val BehaviorTestUrl = "/url/BehaviorTest"
 
     const val HILTESTURL = "/url/HiltTest"
+
+    const val AIDLTESTURL = "/url/AidlTest"
 
     const val Test = "sdfsdfsfsdfsdf"
 

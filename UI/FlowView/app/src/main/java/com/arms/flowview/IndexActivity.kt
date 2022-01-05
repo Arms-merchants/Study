@@ -35,7 +35,8 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
             "KTX相关的测试" to RouteUrl.KtxTestUrl,
             "单Activity" to RouteUrl.SingleActivityUrl,
             "BehaviorTest" to RouteUrl.BehaviorTestUrl,
-            "HiltTest" to RouteUrl.HILTESTURL
+            "HiltTest" to RouteUrl.HILTESTURL,
+            "AidlTest" to RouteUrl.AIDLTESTURL
         )
         binding.rv.adapter = object :
             BaseRecyclerViewAdapter<Pair<String, String>, ItemIndexBinding, BaseViewBindingHolder<ItemIndexBinding>>(
@@ -50,9 +51,9 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
                     //Arouter通过路径跳转
 
                     ARouter.getInstance().build(item?.second).navigation()
-                 /*   ARouter.getInstance().build(item?.second)
-                        .withBoolean("isTest",false)
-                        .withObject()*/
+                    /*   ARouter.getInstance().build(item?.second)
+                           .withBoolean("isTest",false)
+                           .withObject()*/
 
                 }
             }

@@ -33,8 +33,13 @@
         <activity android:name=".ktx.LiveDataTestActivity" />
         <activity android:name=".ktx.KtxTestActivity" />
         <activity android:name=".singleac.SingleActivity" />
-        <activity android:name=".nestedScroll.BehaviorTestActivity"/>
-        <activity android:name=".hilt.TestHiltActivity"/>
+        <activity android:name=".nestedScroll.BehaviorTestActivity" />
+        <activity android:name=".hilt.TestHiltActivity" />
+        <activity
+            android:name=".aidl.AidleTestActivity"
+            android:process=".aidl_test" />
+
+        <service android:name=".aidl.TestService" />
 
     </application>
 
