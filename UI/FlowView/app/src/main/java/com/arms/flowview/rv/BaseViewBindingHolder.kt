@@ -5,6 +5,6 @@ import androidx.viewbinding.ViewBinding
 /**
  * Created by heyueyang on 2021/11/16
  */
-open class BaseViewBindingHolder<VB : ViewBinding>(val vb: VB) : BaseViewHolder(vb.root) {
+open  class BaseViewBindingHolder<out VB : ViewBinding>(val vb: VB) : BaseViewHolder(vb.root) {
 
 }

@@ -1,19 +1,16 @@
 package com.arms.flowview
 
-import android.content.Intent
-import androidx.core.app.ActivityOptionsCompat
+import android.os.Debug
+import android.os.Handler
+import android.os.Looper
+import android.os.MessageQueue
 import com.alibaba.android.arouter.launcher.ARouter
 import com.arms.flowview.base.BaseBindingActivity
 import com.arms.flowview.configs.RouteUrl
 import com.arms.flowview.databinding.ActivityIndexBinding
 import com.arms.flowview.databinding.ItemIndexBinding
-import com.arms.flowview.ktx.KtxTestActivity
 import com.arms.flowview.rv.BaseRecyclerViewAdapter
 import com.arms.flowview.rv.BaseViewBindingHolder
-import com.arms.flowview.rv.RvListActivity
-import com.arms.flowview.singleac.SingleActivity
-import com.arms.flowview.vp.TestVp2Activity
-import com.arms.flowview.vp.VpTestActivity
 
 /**
  *    author : heyueyang
@@ -24,6 +21,12 @@ import com.arms.flowview.vp.VpTestActivity
 class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
 
     override fun initView() {
+
+        Looper.myQueue().addIdleHandler {
+
+            false
+        }
+
         val list = arrayListOf<Pair<String, String>>(
             "FlowView" to RouteUrl.FlowViewUrl,
             "FishView" to RouteUrl.FishViewUrl,
@@ -38,6 +41,7 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
             "HiltTest" to RouteUrl.HILTESTURL,
             "AidlTest" to RouteUrl.AIDLTESTURL
         )
+
         binding.rv.adapter = object :
             BaseRecyclerViewAdapter<Pair<String, String>, ItemIndexBinding, BaseViewBindingHolder<ItemIndexBinding>>(
                 list
@@ -51,7 +55,8 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
                     //Arouter通过路径跳转
 
                     ARouter.getInstance().build(item?.second).navigation()
-                    /*   ARouter.getInstance().build(item?.second)
+
+/*   ARouter.getInstance().build(item?.second)
                            .withBoolean("isTest",false)
                            .withObject()*/
 
@@ -59,4 +64,10 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
             }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        Debug.stopMethodTracing()
+    }
+
 }

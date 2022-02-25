@@ -12,6 +12,9 @@ import com.arms.flowview.configs.RouteUrl
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.orhanobut.logger.Logger
+import com.scwang.smart.refresh.layout.SmartRefreshLayout
+import com.scwang.smart.refresh.layout.api.RefreshFooter
+import com.scwang.smart.refresh.layout.simple.SimpleMultiListener
 
 /**
  * <pre>
@@ -46,7 +49,30 @@ class TaoBaoHomeActivity : AppCompatActivity() {
             tab.text = content[position]
         }.attach()
 
-        Logger.e("123123123")
+        val smartRefreshLayout = findViewById<SmartRefreshLayout>(R.id.refresh_layout)
+        smartRefreshLayout.setOnMultiListener(object : SimpleMultiListener() {
+            override fun onFooterMoving(
+                footer: RefreshFooter?,
+                isDragging: Boolean,
+                percent: Float,
+                offset: Int,
+                footerHeight: Int,
+                maxDragHeight: Int
+            ) {
+                //offset底部出来的距离
+                tab.y = (offset).toFloat()
+            }
+        })
+
+        smartRefreshLayout.setOnRefreshListener {
+            smartRefreshLayout.finishRefresh()
+        }
+        smartRefreshLayout.setOnLoadMoreListener {
+            smartRefreshLayout.postDelayed({
+                smartRefreshLayout.finishLoadMore()
+            }, 6000)
+        }
+
     }
 
 }

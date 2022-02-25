@@ -6,6 +6,10 @@ dependencyResolutionManagement {
         maven { setUrl("https://maven.aliyun.com/repository/public") }
         maven { setUrl("https://maven.aliyun.com/repository/google") }
         maven { setUrl("https://maven.aliyun.com/repository/gradle-plugin") }
+        maven {
+            this.isAllowInsecureProtocol = true
+            setUrl("http://172.17.9.225:8081/repository/maven-releases/")
+        }
         google()
         mavenCentral()
         maven { setUrl("https://jitpack.io") }

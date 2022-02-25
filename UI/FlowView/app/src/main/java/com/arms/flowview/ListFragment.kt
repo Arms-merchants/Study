@@ -47,7 +47,7 @@ class ListFragment() : Fragment() {
         "ListFragment ${index} onViewCreated".logE()
         val rv = view.findViewById<RecyclerView>(R.id.rv)
         val list = arrayListOf<String>()
-        for (i in 0..100) {
+        for (i in 0..20) {
             list.add(i.toString())
         }
         val adapter = RvAdapter(list)

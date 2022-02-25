@@ -109,7 +109,8 @@ abstract class BaseRecyclerViewAdapter<T, V : ViewBinding, VB : BaseViewBindingH
     /**
      * 在类的范型上查询符合需求的class
      * 例如在当前的范型上查询当前的ViewBinding的具体的Type是什么，例如ItemTvBinding
-     * 还有去查询ViewHolder的类型，这里其实是为了如果有需求可以自定义ViewHolder去查询的，如果没有自定义的话那么拿到的都是BaseViewBindingHolder
+     * 还有去查询ViewHolder的类型，这里其实是为了如果有需求可以自定义ViewHolder去查询的，
+     * 如果没有自定义的话那么拿到的都是BaseViewBindingHolder
      * @param z         需要被查找的class
      * @param findClazz 目标class类型
      */

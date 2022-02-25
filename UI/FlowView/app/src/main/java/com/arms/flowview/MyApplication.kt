@@ -18,7 +18,13 @@ import kotlinx.coroutines.SupervisorJob
  *    version: 1.0
  */
 @HiltAndroidApp
-class MyApplication : DexLoadApplication() {
+class MyApplication
+    () : DexLoadApplication() {
+
+    init {
+        //Debug模式下进行方法追踪，不过华为手机有问题，小米手机可以获取到，不过需要注意需要文件写入权限，不然就只能写入到app的私有目录
+        //Debug.startMethodTracing("enjoy")
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -41,6 +47,5 @@ class MyApplication : DexLoadApplication() {
         Logger.addLogAdapter(AndroidLogAdapter(formatStrategy))
         Utils.init(this)
     }
-
 
 }
