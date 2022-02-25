@@ -40,7 +40,6 @@ internal class MyNestedScrollChild : ScrollView, NestedScrollingChild {
         init(context)
     }
 
-
     private fun init(context: Context) {
         val vc = ViewConfiguration.get(context)
         mMinFlingVelocity = vc.scaledMinimumFlingVelocity
@@ -190,7 +189,6 @@ internal class MyNestedScrollChild : ScrollView, NestedScrollingChild {
                 //childScroll(dx, dy)
             }
             MotionEvent.ACTION_UP -> {
-
                 //当手指抬起的时，结束嵌套滑动传递,并判断是否产生了fling效果
                 mVelocityTracker!!.computeCurrentVelocity(1000, mMaxFlingVelocity.toFloat())
                 val xvel = mVelocityTracker!!.xVelocity.toInt()
@@ -218,7 +216,6 @@ internal class MyNestedScrollChild : ScrollView, NestedScrollingChild {
         var unConsumedY = 0
         var consumedX = 0
         var consumedY = 0
-
         //子控件消耗多少事件，由自己决定
         if (x != 0) {
             consumedX = childConsumeX(x)
@@ -228,10 +225,8 @@ internal class MyNestedScrollChild : ScrollView, NestedScrollingChild {
             consumedY = childConsumeY(y)
             unConsumedY = y - consumedY
         }
-
         //子控件处理事件
         childScroll(consumedX, consumedY)
-
         //子控件处理后，又将剩下的事件传递给父控件
         if (!dispatchNestedScroll(consumedX, consumedY, unConsumedX, unConsumedY, mScrollOffset)) {
             //传给父控件处理后，剩下的逻辑自己实现

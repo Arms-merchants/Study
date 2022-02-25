@@ -1,9 +1,6 @@
 package com.arms.flowview
 
-import android.os.Debug
-import android.os.Handler
 import android.os.Looper
-import android.os.MessageQueue
 import com.alibaba.android.arouter.launcher.ARouter
 import com.arms.flowview.base.BaseBindingActivity
 import com.arms.flowview.configs.RouteUrl
@@ -11,6 +8,8 @@ import com.arms.flowview.databinding.ActivityIndexBinding
 import com.arms.flowview.databinding.ItemIndexBinding
 import com.arms.flowview.rv.BaseRecyclerViewAdapter
 import com.arms.flowview.rv.BaseViewBindingHolder
+import java.lang.Thread.sleep
+import kotlin.concurrent.thread
 
 /**
  *    author : heyueyang
@@ -23,10 +22,10 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
     override fun initView() {
 
         Looper.myQueue().addIdleHandler {
-
+            //一个在空闲时执行的Handler，也就是当一个handler消息队列没有要执行的任务时会执行这里
+            //返回true的话会持续回掉，false只会执行一次
             false
         }
-
         val list = arrayListOf<Pair<String, String>>(
             "FlowView" to RouteUrl.FlowViewUrl,
             "FishView" to RouteUrl.FishViewUrl,
@@ -41,7 +40,6 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
             "HiltTest" to RouteUrl.HILTESTURL,
             "AidlTest" to RouteUrl.AIDLTESTURL
         )
-
         binding.rv.adapter = object :
             BaseRecyclerViewAdapter<Pair<String, String>, ItemIndexBinding, BaseViewBindingHolder<ItemIndexBinding>>(
                 list
@@ -53,13 +51,11 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
                 holder.vb.tv.text = item?.first
                 holder.vb.tv.setOnClickListener {
                     //Arouter通过路径跳转
-
                     ARouter.getInstance().build(item?.second).navigation()
-
+//ARouter的带参数跳转
 /*   ARouter.getInstance().build(item?.second)
                            .withBoolean("isTest",false)
                            .withObject()*/
-
                 }
             }
         }
@@ -67,7 +63,7 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
 
     override fun onResume() {
         super.onResume()
-        Debug.stopMethodTracing()
+        //Debug.stopMethodTracing()
     }
 
 }

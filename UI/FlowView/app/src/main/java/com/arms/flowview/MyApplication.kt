@@ -1,6 +1,7 @@
 package com.arms.flowview
 
 import com.alibaba.android.arouter.launcher.ARouter
+import com.arms.flowview.utils.BlockCanary
 import com.arms.flowview.utils.Utils
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
@@ -31,6 +32,7 @@ class MyApplication
         val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
         initLogger()
         initARouter()
+        BlockCanary.install()
     }
 
     private fun initARouter() {

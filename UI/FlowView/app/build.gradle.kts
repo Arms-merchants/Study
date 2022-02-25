@@ -46,8 +46,8 @@ kapt {
 
 dependencies {
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
-    implementation("androidx.appcompat:appcompat:1.3.1")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.10")
+    implementation("androidx.appcompat:appcompat:1.4.0")
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.1")
     testImplementation("junit:junit:4.13.2")
@@ -88,13 +88,10 @@ dependencies {
     //hilt
     implementation("com.google.dagger:hilt-android:2.40")
     kapt("com.google.dagger:hilt-android-compiler:2.40")
-
     implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
-    kapt("androidx.hilt:hilt-compiler:1.0.0-beta01")
-
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
+    //SmartRefresh
     implementation("com.scwang.smart:refresh-layout-kernel:2.0.3")
     implementation("com.scwang.smart:refresh-header-classics:2.0.3")
     implementation("com.scwang.smart:refresh-header-material:2.0.3")
-
-    implementation("com.tojoy.bussinesscloud.app:FlycoTabLayout:1.0.10")
 }

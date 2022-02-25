@@ -1,6 +1,5 @@
 package com.arms.flowview.vp
 
-import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.arms.flowview.base.BaseBindingActivity
 import com.arms.flowview.configs.RouteUrl
@@ -25,7 +24,7 @@ class VpTestActivity : BaseBindingActivity<ActivityVpTestBinding>() {
             vp.adapter = MyAdapter(supportFragmentManager)
             tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
-                    tab?.position?.let { vp.setCurrentItem(it) }
+                    tab?.position?.let { vp.currentItem = it }
                 }
 
                 override fun onTabUnselected(tab: TabLayout.Tab?) {
