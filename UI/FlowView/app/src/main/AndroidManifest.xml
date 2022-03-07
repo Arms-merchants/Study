@@ -44,6 +44,8 @@
 
         <service android:name=".aidl.TestService" />
 
+        <activity android:name=".list.ExpandListActivity"/>
+
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.distinctUntilChanged
 import com.arms.flowview.ext.launchAndRepeatWithViewLifecycle
@@ -27,7 +28,7 @@ class TestFragment : Fragment() {
         //framgnet中要使用viewLifecycleOwner
         mModel.testData.distinctUntilChanged().observe(viewLifecycleOwner, Observer { })
 
-        launchAndRepeatWithViewLifecycle {
+        launchAndRepeatWithViewLifecycle (Lifecycle.State.RESUMED){
             mModel.navigationEvnet.collect {
 
             }

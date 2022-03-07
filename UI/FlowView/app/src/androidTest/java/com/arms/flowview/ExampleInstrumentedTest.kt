@@ -17,8 +17,18 @@ import org.junit.Assert.*
 class ExampleInstrumentedTest {
     @Test
     fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.arms.flowview", appContext.packageName)
+
+        val mutableMap = mutableMapOf<String, String>("name" to "jack", "age" to "23")
+        mutableMap.remove("name")
+        mutableMap.put("1", "1")
+        /**
+         * 不可变
+         */
+        val list = arrayListOf<String>("1", "2", "3")
+
+
+
+
+
     }
 }

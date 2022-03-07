@@ -21,7 +21,7 @@ name 对应的名称
 class TestInterceptor : IInterceptor {
 
     override fun init(context: Context?) {
-        Logger.e("=======${"TestInterceptor init"}")
+        //Logger.e("=======${"TestInterceptor init"}")
         // 拦截器的初始化，会在sdk初始化的时候调用该方法，仅会调用一次
     }
 

@@ -32,7 +32,7 @@ class MyApplication
         val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
         initLogger()
         initARouter()
-        BlockCanary.install()
+        //BlockCanary.install()
     }
 
     private fun initARouter() {

@@ -48,6 +48,7 @@ class LiveDataTestActivity : BaseBindingActivity<ActivityLivedateTestBinding>() 
             mModel.sumFlow.collect {
                 binding.tv2.text = it.toString()
             }
+            Snackbar.make(binding.root,"添加数据成功",Snackbar.LENGTH_LONG).show()
         }
         binding.btAdd.setOnClickListener {
             mModel.aModel.inc()

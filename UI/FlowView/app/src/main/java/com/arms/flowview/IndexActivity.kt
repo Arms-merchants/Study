@@ -1,5 +1,6 @@
 package com.arms.flowview
 
+import android.Manifest
 import android.os.Looper
 import com.alibaba.android.arouter.launcher.ARouter
 import com.arms.flowview.base.BaseBindingActivity
@@ -8,8 +9,11 @@ import com.arms.flowview.databinding.ActivityIndexBinding
 import com.arms.flowview.databinding.ItemIndexBinding
 import com.arms.flowview.rv.BaseRecyclerViewAdapter
 import com.arms.flowview.rv.BaseViewBindingHolder
-import java.lang.Thread.sleep
-import kotlin.concurrent.thread
+import com.arms.flowview.utils.TestUtils
+import com.arms.flowview.utils.kotlinTest
+import com.orhanobut.logger.Logger
+import com.xcf.lazycook.common.ktx.createPermissionResultCaller
+import java.math.BigInteger
 
 /**
  *    author : heyueyang
@@ -38,8 +42,10 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
             "单Activity" to RouteUrl.SingleActivityUrl,
             "BehaviorTest" to RouteUrl.BehaviorTestUrl,
             "HiltTest" to RouteUrl.HILTESTURL,
-            "AidlTest" to RouteUrl.AIDLTESTURL
+            "AidlTest" to RouteUrl.AIDLTESTURL,
+            "ExpandList" to RouteUrl.EXPAND_LIST
         )
+
         binding.rv.adapter = object :
             BaseRecyclerViewAdapter<Pair<String, String>, ItemIndexBinding, BaseViewBindingHolder<ItemIndexBinding>>(
                 list
@@ -51,7 +57,21 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
                 holder.vb.tv.text = item?.first
                 holder.vb.tv.setOnClickListener {
                     //Arouter通过路径跳转
-                    ARouter.getInstance().build(item?.second).navigation()
+                    if (item?.first == "HiltTest") {
+                        val caller = createPermissionResultCaller {
+                        }
+                        caller.launch(this@IndexActivity) {
+                            permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+                            success = {
+                                Logger.e("success")
+                            }
+                            fail = {
+                                Logger.e("fail")
+                            }
+                        }
+                    } else {
+                        ARouter.getInstance().build(item?.second).navigation()
+                    }
 //ARouter的带参数跳转
 /*   ARouter.getInstance().build(item?.second)
                            .withBoolean("isTest",false)
@@ -59,6 +79,26 @@ class IndexActivity : BaseBindingActivity<ActivityIndexBinding>() {
                 }
             }
         }
+
+        kotlinTest({
+
+        })
+        val length = "".run {
+            length
+            this.hashCode()
+            this.toCharArray()
+        }
+
+        val test = "".let {
+            it.length
+            it.toCharArray()
+        }
+
+
+        "".apply {
+
+        }
+
     }
 
     override fun onResume() {

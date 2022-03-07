@@ -9,9 +9,9 @@ package com.arms.flowview.configs
  */
 object RouteUrl {
 
-    const val KtxTestUrl = "/url/KtxTest"
+    const val KtxTestUrl = "/test/url/KtxTest"
 
-    const val FlowViewUrl = "/url/FlowView"
+    const val FlowViewUrl = "/url/abd/FlowView"
 
     const val TextColorChangeUrl = "/url/TextColorChange"
 
@@ -34,5 +34,7 @@ object RouteUrl {
     const val AIDLTESTURL = "/url/AidlTest"
 
     const val Test = "sdfsdfsfsdfsdf"
+
+    const val EXPAND_LIST = "/url/ExpandList"
 
 }
